@@ -1,0 +1,7 @@
+{% extends 'base.html' %} {%block content%}
+<center>
+  <h1>cuma ngetes doang yah bg</h1>
+</center>
+{%for buku in books %}
+<h2 class="text-base font-semibold text-slate-300">{{buku.judul}}</h2>
+{%endfor%} {%endblock%}
