@@ -1,7 +1,12 @@
-{%extends 'base.html' %} {%block content%}
-<form action="" method="post">
-  <div class="text-slate-300 mt-3">{{form.as_p}}</div>
+{%extends 'base.html' %} {%block content%} {% if pesan %}
+<p>{{pesan}}</p>
+{% endif %}
+<form action="/tambah/" method="POST">
+  {% csrf_token %}
+  <div class="w-1/4 m-auto">
+    <div class="text-slate-300 mt-3">{{form.as_p}}</div>
 
-  <button class="bg-sky-500 py-2 px-5 rounded-md">Tambah Data</button>
+    <button class="bg-sky-500 py-2 px-5 rounded-md">Tambah Data</button>
+  </div>
 </form>
 {%endblock%}
