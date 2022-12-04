@@ -1,0 +1,36 @@
+{%extends 'base.html' %} {%block content%} {% if pesan %}
+<div class="h-screen">
+  <p>{{pesan}}</p>
+  {% endif %}
+  <h3>ubah buku</h3>
+
+  {%for message in messages%} {%if message%}
+  <div class="alert alert-info shadow-lg">
+    <div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        class="stroke-current flex-shrink-0 w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        ></path>
+      </svg>
+      <span>data berhasil di ubah</span>
+    </div>
+  </div>
+  {%endif%} {%endfor%}
+  <form action="{%url 'ubah_buku' buku.id%}" method="POST">
+    {% csrf_token %}
+    <div class="w-1/4 m-auto">
+      <div class="text-slate-300 mt-3">{{form.as_p}}</div>
+
+      <button class="bg-sky-500 py-2 px-5 rounded-md">Ubah Data</button>
+    </div>
+  </form>
+</div>
+{%endblock%}

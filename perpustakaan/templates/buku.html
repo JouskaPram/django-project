@@ -1,7 +1,26 @@
 {% extends 'base.html' %} {%block content%}
-<center>
-  <h1>cuma ngetes doang yah bg</h1>
-</center>
-{%for buku in books %}
-<h2 class="text-base font-semibold text-slate-300">{{buku.judul}}</h2>
-{%endfor%} {%endblock%}
+<div class="p-16">
+<table class="table w-full">
+  <thead>
+    <tr class="bg-slate-700 text-white font-semibold text-2xl text-center">
+      <td>No</td>
+      <td>Nama Buku</td>
+      <td>Penulis</td>
+      <td>Penerbit</td>
+      <td>Jumlah buku</td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr {%for buku in books %} class="text-white bg-slate-800 font-base text">
+      <td></td>
+      <td class="text-white bg-slate-800 font-base text">{{buku.judul}}</td>
+      <td class="text-white bg-slate-800 font-base text">{{buku.penulis}}</td>
+      <td class="text-white bg-slate-800 font-base text">{{buku.penerbit}}</td>
+      <td class="text-white bg-slate-800 font-base text">{{buku.total}}</td>
+      <td><a href="{%url 'ubah_buku' buku.id%}">ea</a></td>
+    </tr {%endfor%}>
+  </tbody>
+</table>
+</div>
+ {%endblock%}

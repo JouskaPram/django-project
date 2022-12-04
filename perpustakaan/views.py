@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from perpustakaan.models import Buku
 from .forms import FormBuku
+from django.contrib import messages
+
+
 
 def buku(request):
     books = Buku.objects.all()
@@ -33,5 +36,22 @@ def tambah_buku(request):
         konteks={
           'form':form,
         }
+        return render(request,'tambah-buku.html',konteks)
+def ubah_buku(request,id_buku):
+    buku = Buku.objects.get(id=id_buku)
+    template = "ubah-buku.html"
+    if request.POST:
+        form = FormBuku(request.POST,instance=buku)
+        if form.is_valid():
+            form.save()
+            messages.success(request,"data berhasil di ubah")
+            return redirect('ubah_buku',id_buku=id_buku)
 
-    return render(request,'tambah-buku.html',konteks)
+    else:
+        form = FormBuku(instance=buku)
+        konteks ={
+            'form':form,
+            'buku':buku,
+        }
+
+    return render(request,template,konteks)

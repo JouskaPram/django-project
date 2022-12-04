@@ -11,16 +11,16 @@ class FormBuku(ModelForm):
 
         widgets={
             'judul':forms.TextInput({
-                'class':'bg-slate-700 w-24 h-[50px] rounded-md my-3 w-1/4 hover:bg-slate-600 '
+                'class':'bg-slate-700 w-24 h-[50px] rounded-md my-3 w-full hover:bg-slate-600 '
                 }),
             'penulis':forms.TextInput({
-                'class':'bg-slate-700 w-24 h-[50px] rounded-md my-3 w-1/4 hover:bg-slate-600 '
+                'class':'bg-slate-700 w-24 h-[50px] rounded-md my-3 w-full hover:bg-slate-600 '
                 }),
             'penerbit':forms.TextInput({
-                'class':'bg-slate-700 w-24 h-[50px] rounded-md my-3 w-1/4 hover:bg-slate-600 '
+                'class':'bg-slate-700 w-24 h-[50px] rounded-md my-3 w-full hover:bg-slate-600 '
                 }),
             'total':forms.NumberInput({
-                'class':'bg-slate-700 w-24 h-[50px] rounded-md my-3 w-1/4 hover:bg-slate-600 '
+                'class':'bg-slate-700 w-24 h-[50px] rounded-md my-3 w-full hover:bg-slate-600 '
                 }),
             
         }
