@@ -1,24 +1,27 @@
 {% extends 'base.html' %} {%block content%}
 <div class="p-16">
-<table class="table w-full">
+  <a href="/tambah/" class="py-2 px-5 bg-sky-500 text-md text-center font-semibold text-white rounded-md hover:bg-sky-400 hover:animation duration-1000">tambah data</a>
+<table class="table w-full mt-8">
   <thead>
-    <tr class="bg-slate-700 text-white font-semibold text-2xl text-center">
-      <td>No</td>
+    <tr class="bg-slate-700 text-slate-900 font-semibold text-2xl text-center">
+     
       <td>Nama Buku</td>
       <td>Penulis</td>
       <td>Penerbit</td>
       <td>Jumlah buku</td>
-      <td></td>
+      <td colspan="2">action</td>
     </tr>
   </thead>
   <tbody>
     <tr {%for buku in books %} class="text-white bg-slate-800 font-base text">
-      <td></td>
-      <td class="text-white bg-slate-800 font-base text">{{buku.judul}}</td>
-      <td class="text-white bg-slate-800 font-base text">{{buku.penulis}}</td>
-      <td class="text-white bg-slate-800 font-base text">{{buku.penerbit}}</td>
-      <td class="text-white bg-slate-800 font-base text">{{buku.total}}</td>
-      <td><a href="{%url 'ubah_buku' buku.id%}">ea</a></td>
+      
+     
+      <td class="text-white bg-slate-800 font-base">{{buku.judul}}</td>
+      <td class="text-white bg-slate-800 font-base text-center">{{buku.penulis}}</td>
+      <td class="text-white bg-slate-800 font-base text-center">{{buku.penerbit}}</td>
+      <td class="text-white bg-slate-800 font-base text-center">{{buku.total}}</td>
+      <td class="text-white bg-slate-800 font-base text-center"><a href="{%url 'ubah_buku' buku.id%}" class="py-1 px-5 bg-sky-500 text-md font-semibold text-center rounded-md">ubah</a></td>
+      <td class="text-white bg-slate-800 font-base text-center"><a href="{% url 'delete_buku' buku.id%}" class="py-1 px-5 bg-rose-600 text-md font-semibold text-center rounded-md">delete</a></td>
     </tr {%endfor%}>
   </tbody>
 </table>
