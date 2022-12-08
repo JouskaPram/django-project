@@ -66,5 +66,3 @@ def ubah_buku(request,id_buku):
         }
 
     return render(request,template,konteks)
-
-
